@@ -110,6 +110,7 @@ int main(){
     transpose_Matrix(matrixA,row,col);
     printf("Matrix A * B\n");
     multiply_Matrix(matrixA,matrixB,row,col);
+    printf("[----- [Park Younghyeon] [2021041019] -----]");
 
     free_Matrix(matrixA,matrixB);
 
