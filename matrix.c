@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-//행렬을 동적할당하는 함수 createMatrix()
+//행렬을 동적할당하는 함수 create_Matrix()
 int** create_Matrix(int row, int col){
     int** matrix = (int**)malloc(sizeof(int*)*row);
     for(int i=0; i<row; i++){
@@ -11,7 +11,7 @@ int** create_Matrix(int row, int col){
     return matrix;
 }
 
-//A와 B 행렬을 출력하는 함수 printMatrix()
+//A와 B 행렬을 출력하는 함수 print_Matrix()
 void print_Matrix(int** matrix, int row, int col){
     for(int i=0; i<row; i++){
         for(int j=0; j<col; j++){
@@ -22,7 +22,7 @@ void print_Matrix(int** matrix, int row, int col){
     printf("\n");
 }
 
-//A와 B행렬을 더하고 printMatrix를 통해 출력하는 함수 addMatrix
+//A와 B행렬을 더하고 print_Matrix를 통해 출력하는 함수 add_Matrix
 void add_Matrix(int** matrixA, int** matrixB, int row, int col){
     int** matrixC = create_Matrix(row, col);
     for(int i=0; i<row; i++){
@@ -34,7 +34,7 @@ void add_Matrix(int** matrixA, int** matrixB, int row, int col){
     free(matrixC);
 }
 
-//A와 B행렬을 빼고 printMatrix를 통해 출력하는 함수 subtractMatrix
+//A와 B행렬을 빼고 print_Matrix를 통해 출력하는 함수 subtract_Matrix
 void subtract_Matrix(int** matrixA, int** matrixB, int row, int col){
     int** matrixC = create_Matrix(row, col);
     for(int i=0; i<row; i++){
@@ -46,7 +46,7 @@ void subtract_Matrix(int** matrixA, int** matrixB, int row, int col){
     free(matrixC);
 }
 
-//A행렬의 전치행렬을 구하고 printMatrix를 통해 출력하는 함수 transposeMatrix
+//A행렬의 전치행렬을 구하고 print_Matrix를 통해 출력하는 함수 transpose_Matrix
 void transpose_Matrix(int** matrixA, int row, int col){
     int** matrixC = create_Matrix(col, row);
     for(int i=0; i<row; i++){
@@ -58,7 +58,7 @@ void transpose_Matrix(int** matrixA, int row, int col){
     free(matrixC);
 }
 
-//A행렬과 B행렬의 곱을 구하고 printMatrix를 통해 출력하는 함수 multiplyMatrix
+//A행렬과 B행렬의 곱을 구하고 print_Matrix를 통해 출력하는 함수 multiply_Matrix
 void multiply_Matrix(int** matrixA, int** matrixB, int row, int col){
     int** matrixC = create_Matrix(row, col);
     for(int i=0; i<row; i++){
@@ -73,7 +73,7 @@ void multiply_Matrix(int** matrixA, int** matrixB, int row, int col){
     free(matrixC);
 }
 
-//동적할당한 메모리를 해제하는 함수 freeMatrix()
+//동적할당한 메모리를 해제하는 함수 free_Matrix()
 void free_Matrix(int**matrixA, int**matrixB){
     free(matrixA);
     free(matrixB);
@@ -85,7 +85,7 @@ int main(){
     int** matrixA = create_Matrix(row, col);
     int** matrixB = create_Matrix(row, col);
 
-    //랜덤값으로 행렬을 채운다.
+    //랜덤값으로 행렬을 채운다. 행렬의 연산의 검산을 편하게 하기 위하여 rand()%10을 사용하여 행렬을 채우는 랜덤 값의 범위를 0~9까지로 정하였습니다. 
     srand(time(NULL));
     for(int i=0; i<row; i++){
         for(int j=0; j<col; j++){
